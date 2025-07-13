@@ -1,0 +1,147 @@
+/* 讓整個 body 置中並橫向排列三個 container */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    background-color: #f2f2f2;
+    font-family: "Segoe UI", sans-serif;
+}
+
+/* 左右側容器共用樣式 */
+.side-container {
+    width: 15vw;
+    height: 100vh;
+    background-color: #dcdcdc;
+    padding: 20px;
+    box-sizing: border-box;
+    border-right: 2px solid #aaa;
+
+    display: flex;
+}
+
+#leftContainer {
+    background-color: #ffe4e1;
+    border-right: 2px solid #aaa;
+    flex-direction: column;
+}
+
+#rightContainer {
+    background-color: #e6f7ff;
+    border-left: 2px solid #aaa;
+    flex-direction: column-reverse;
+}
+
+/* 中間主區塊 */
+#middleContainer {
+    width: 75vw;
+    height: 100vh;
+    background-color: #fff;
+    padding: 20px;
+    box-sizing: border-box;
+    border-left: 2px solid #ccc;
+    border-right: 2px solid #ccc;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    /* 每列6格，5列 */
+    gap: 30px;
+}
+
+/* 重生點 */
+.spawn-point {
+    
+
+}
+
+#spawnPointA {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ff69b4;
+}
+
+#spawnPointB {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #002366;
+}
+
+/* 猜拳 */
+
+.moves {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 3px solid #444;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    margin: 10px;
+    transition: transform 0.2s ease;
+}
+
+.moves:hover {
+    transform: scale(1.05);
+}
+
+#rockA {
+    background-color: #ffe4e1;
+}
+
+#paperA {
+    background-color: #ffe4e1;
+}
+
+#scissorA {
+    background-color: #ffe4e1;
+}
+
+/* 磁磚 */
+.tile {
+    width: 100%;
+    /* aspect-ratio: 1 / 1; */
+    background-color: #e0e0e0;
+    border: 2px solid #aaa;
+    border-radius: 6px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 角色 */
+.player {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #555;
+    /* 預設底色，沒圖也不會空白 */
+}
+
+#playerA {
+    background-image: url('阿/playerA.png');
+    /* 換成你的圖片路徑 */
+    background-size: cover;
+    background-position: center;
+}
+
+#playerB {
+    background-image: url('阿/playerB.png');
+    /* 換成你的圖片路徑 */
+    background-size: cover;
+    background-position: center;
+}
