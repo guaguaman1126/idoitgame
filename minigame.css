@@ -1,3 +1,11 @@
+html, body {
+  touch-action: manipulation;
+  -webkit-user-select: none;
+  user-select: none;
+}
+button {
+  touch-action: manipulation;
+}
 /* 讓整個 body 置中並橫向排列三個 container */
 body {
     margin: 0;
