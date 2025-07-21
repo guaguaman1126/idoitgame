@@ -52,6 +52,7 @@ function movePlayerBy(id, step) {
     const hasOtherPlayer = Array.from(nextTile.children).some(child => child.classList.contains('player') && child !== player);
     if (hasOtherPlayer) {
       console.log('⚠️ 該格已有其他玩家，無法移動');
+      triggerRockPaperScissors(player, nextTile); // 呼叫猜拳 function
       return;
     }
     nextTile.appendChild(player);
@@ -59,4 +60,12 @@ function movePlayerBy(id, step) {
   } else {
     console.log('⛔ 無法移動：目標格子不存在');
   }
+}
+
+//猜拳戰鬥
+function triggerRockPaperScissors(player, tile) {
+  console.log('✊✋✌️ 進入猜拳對戰！');
+
+  const overlay = document.getElementById('rps-overlay');
+  overlay.style.display = 'flex'; // 顯示預設隱藏的面板
 }
