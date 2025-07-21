@@ -18,19 +18,39 @@
         </div>
         <button id="moveButtonA" class="moveButton">設定移動鍵</button>
 
-        <div id="rockA" class="moves"></div>
-        <div id="paperA" class="moves"></div>
-        <div id="scissorA" class="moves"></div>
+
+        <button onclick="startRpsTimer()">開始倒數</button>
+        <button onclick="checkPress('A',1)" id="scissorA" class="moves">A 剪刀</button>
+        <button onclick="checkPress('A',2)" id="rockA" class="moves">A 石頭</button>
+        <button onclick="checkPress('A',3)" id="paperA" class="moves">A 布</button>
+
 
     </div>
 
 
     <div id="middleContainer">
 
+
+        <div id="rps-overlay-win">
+            <div id="win-content">
+                
+            </div>
+        </div>
+
+
+
         <div id="rps-overlay">
+
             <div id="rps-panel">
                 猜拳對戰中...
             </div>
+
+            <div id="rps-timer-wrapper">
+                <div id="rps-bar">
+                    <div id="rps-valid-zone"></div>
+                </div>
+            </div>
+
         </div>
 
 
@@ -74,10 +94,11 @@
         <div id="spawnPointB" class="tile" data-index="31">
             <div id="playerB" class="player"></div>
         </div>
+
         <button id="moveButtonB" class="moveButton">設定移動鍵</button>
-        <div id="rockB" class="moves"></div>
-        <div id="paperB" class="moves"></div>
-        <div id="scissorB" class="moves"></div>
+        <button onclick="checkPress('B',1)" id="scissorB" class="moves">B 剪刀</button>
+        <button onclick="checkPress('B',2)" id="rockB" class="moves">B 石頭</button>
+        <button onclick="checkPress('B',3)" id="paperB" class="moves">B 布</button>
 
     </div>
 
