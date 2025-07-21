@@ -15,10 +15,12 @@ document.addEventListener('keydown', (e) => {
     keyBindings[listeningTarget] = e.key;
     button.textContent = `綁定：${e.key.toUpperCase()}`;
     listeningTarget = null;
+    console.log(`[KeyBinding] 綁定 ${e.key} 給 ${button.id}`);
   } else {
     Object.keys(keyBindings).forEach((id) => {
       if (e.key === keyBindings[id]) {
-        if (id === 'moveButtonA' || id === 'moveButtonB') {
+        console.log(`[KeyEvent] 偵測到 ${e.key} 觸發 ${id}`);
+        if (id === 'setMoveButtonA' || id === 'setMoveButtonB') {
           movePlayerBy(id, 1);
         }
       }
@@ -26,8 +28,8 @@ document.addEventListener('keydown', (e) => {
   }
 });
 
-setupKeyBinding('moveButtonA', '移動');
-setupKeyBinding('moveButtonB', '移動');
+setupKeyBinding('setMoveButtonA', '移動');
+setupKeyBinding('setMoveButtonB', '移動');
 
 let gameRunning = true;
 // 移動往前
@@ -36,11 +38,12 @@ function movePlayerBy(id, step) {
   let direction = 0;
   if (timerRunning || !gameRunning) return;
 
+  console.log(`[Move] 嘗試移動 ${id} by ${step}`);
 
-  if (id === 'moveButtonA') {
+  if (id === 'setMoveButtonA') {
     player = document.getElementById('playerA');
     direction = 1;
-  } else if (id === 'moveButtonB') {
+  } else if (id === 'setMoveButtonB') {
     player = document.getElementById('playerB');
     direction = -1;
   }
@@ -54,13 +57,12 @@ function movePlayerBy(id, step) {
   const nextTile = document.querySelector(`.tile[data-index='${newIndex}']`);
   if (nextTile) {
     if (newIndex === 0) {
+      console.log('[Move] 玩家B到達 0 格，判定勝利');
       win("B");
-      // console.log('🏁 玩家B勝利！');
       return;
     } else if (newIndex === 31) {
+      console.log('[Move] 玩家A到達 31 格，判定勝利');
       win("A");
-
-      // console.log('🏁 玩家A勝利！');
       return;
     }
 
@@ -115,6 +117,7 @@ function startRpsTimer(duration = 3000) {
     }
   }, { once: true });
 }
+
 // 檢查按下的按鈕式是否有效
 function checkPress(player, move) {
   console.log(`[checkPress] 玩家 ${player} 嘗試按鍵，move: ${move}`);
@@ -143,8 +146,10 @@ function checkPress(player, move) {
     console.log(`❌ 玩家 ${player} 失敗，按太早或太晚！`);
   }
 }
+
 //檢查猜拳輸贏
 function checkwin(info) {
+  console.log('[checkwin] 判斷勝負中', info);
   const keys = Object.keys(info);
   if (keys.length === 2) {
     const p1 = keys[0];
@@ -152,9 +157,13 @@ function checkwin(info) {
     const m1 = info[p1];
     const m2 = info[p2];
 
+    console.log(`[checkwin] 玩家 ${p1} 出 ${m1}, 玩家 ${p2} 出 ${m2}`);
+
     if ((m1 === 1 && m2 === 2) || (m1 === 2 && m2 === 3) || (m1 === 3 && m2 === 1)) {
+      console.log(`[checkwin] 玩家 ${p1} 勝利`);
       spawn(p1);
     } else if ((m2 === 1 && m1 === 2) || (m2 === 2 && m1 === 3) || (m2 === 3 && m1 === 1)) {
+      console.log(`[checkwin] 玩家 ${p2} 勝利`);
       spawn(p2);
     } else {
       console.log('平手');
@@ -163,11 +172,13 @@ function checkwin(info) {
     }
   } else if (keys.length === 1) {
     const loser = keys[0] === 'A' ? 'B' : 'A';
+    console.log(`[checkwin] 僅有玩家 ${keys[0]} 出拳，${loser} 判定失敗`);
     spawn(loser);
   }
 
   document.getElementById('rps-overlay').style.display = 'none';
 }
+
 //重生
 function spawn(player) {
   console.log(`🔁 玩家 ${player} 輸了，移動到出生點`);
@@ -186,6 +197,7 @@ function win(winChar) {
   gameRunning = false;
   if (overlay && content) {
     overlay.style.display = 'flex';
+    console.log(`[Win] 顯示勝利畫面，勝者為 ${winChar}`);
 
     // 取代內文，加入動態勝利文字
     content.innerHTML = `
@@ -196,6 +208,7 @@ function win(winChar) {
 }
 
 function restartGame() {
+  console.log('[Restart] 遊戲重新開始');
   const overlay = document.getElementById('rps-overlay-win');
   gameRunning = true;
   overlay.style.display = 'none';

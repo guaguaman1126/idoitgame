@@ -16,11 +16,13 @@
         <div id="spawnPointA" class="tile" data-index="0">
             <div id="playerA" class="player"></div>
         </div>
-        <button id="moveButtonA" class="moveButton">設定移動鍵</button>
+        <button id="setMoveButtonA" class="setMoveButton">設定移動鍵</button>
 
         <button onclick="checkPress('A',1)" id="scissorA" class="moves"></button>
         <button onclick="checkPress('A',2)" id="rockA" class="moves"></button>
         <button onclick="checkPress('A',3)" id="paperA" class="moves"></button>
+        <button onclick="movePlayerBy('setMoveButtonA', 1)" id="moveButtonA" class="moveButton">移動鍵</button>
+
 
 
     </div>
@@ -93,10 +95,11 @@
             <div id="playerB" class="player"></div>
         </div>
 
-        <button id="moveButtonB" class="moveButton">設定移動鍵</button>
+        <button id="setMoveButtonB" class="setMoveButton">設定移動鍵</button>
         <button onclick="checkPress('B',1)" id="scissorB" class="moves"></button>
         <button onclick="checkPress('B',2)" id="rockB" class="moves"></button>
         <button onclick="checkPress('B',3)" id="paperB" class="moves"></button>
+        <button onclick="movePlayerBy('setMoveButtonB', 1)" id="moveButtonB" class="moveButton">移動鍵</button>
 
     </div>
 
