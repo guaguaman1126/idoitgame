@@ -97,14 +97,44 @@ body {
 
 #rockA {
     background-color: #ffe4e1;
+    background-image: url('阿/rock.png');
+    background-size: cover;
+    background-position: center;
 }
 
 #paperA {
     background-color: #ffe4e1;
+    background-image: url('阿/paper.png');
+    background-size: cover;
+    background-position: center;
 }
 
 #scissorA {
     background-color: #ffe4e1;
+    background-image: url('阿/scissors.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#rockB {
+    background-color: #e6f7ff;
+    background-image: url('阿/rock.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#paperB {
+    background-color: #e6f7ff;
+    background-image: url('阿/paper.png');
+    background-size: cover;
+    background-position: center;
+}
+
+#scissorB {
+    background-color: #e6f7ff;
+    background-image: url('阿/scissors.png');
+    background-size: cover;
+    background-position: center;
 }
 
 /* 磁磚 */

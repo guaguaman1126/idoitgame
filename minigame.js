@@ -28,11 +28,14 @@ document.addEventListener('keydown', (e) => {
 
 setupKeyBinding('moveButtonA', '移動');
 setupKeyBinding('moveButtonB', '移動');
+
+let gameRunning = true;
 // 移動往前
 function movePlayerBy(id, step) {
   let player;
   let direction = 0;
-  if (timerRunning) return;
+  if (timerRunning || !gameRunning) return;
+
 
   if (id === 'moveButtonA') {
     player = document.getElementById('playerA');
@@ -55,7 +58,8 @@ function movePlayerBy(id, step) {
       // console.log('🏁 玩家B勝利！');
       return;
     } else if (newIndex === 31) {
-       win("A");
+      win("A");
+
       // console.log('🏁 玩家A勝利！');
       return;
     }
@@ -174,12 +178,12 @@ function spawn(player) {
 
 //贏家特效
 function win(winChar) {
-console.log(`🔁 玩家 ${winChar} 贏了`);
+  console.log(`🔁 玩家 ${winChar} 贏了`);
   const loseChar = winChar === 'A' ? 'B' : 'A';
-
   const overlay = document.getElementById('rps-overlay-win');
   const content = document.getElementById('win-content');
 
+  gameRunning = false;
   if (overlay && content) {
     overlay.style.display = 'flex';
 
@@ -192,8 +196,9 @@ console.log(`🔁 玩家 ${winChar} 贏了`);
 }
 
 function restartGame() {
-      const overlay = document.getElementById('rps-overlay-win');
-      overlay.style.display = 'none';
-      spawn('A');
-      spawn('B');
-    }
+  const overlay = document.getElementById('rps-overlay-win');
+  gameRunning = true;
+  overlay.style.display = 'none';
+  spawn('A');
+  spawn('B');
+}
