@@ -19,17 +19,38 @@ document.addEventListener('keydown', (e) => {
   } else {
     Object.keys(keyBindings).forEach((id) => {
       if (e.key === keyBindings[id]) {
+
         console.log(`[KeyEvent] 偵測到 ${e.key} 觸發 ${id}`);
         if (id === 'setMoveButtonA' || id === 'setMoveButtonB') {
           movePlayerBy(id, 1);
+        } else if (id === 'setScissorA') {
+          checkPress('A', 1)
+        } else if (id === 'setRockA') {
+          checkPress('A', 2)
+        } else if (id === 'setPaperA') {
+          checkPress('A', 3)
+        } else if (id === 'setScissorB') {
+          checkPress('B', 1)
+        } else if (id === 'setRockB') {
+          checkPress('B', 2)
+        } else if (id === 'setPaperB') {
+          checkPress('B', 3)
         }
       }
+
     });
   }
 });
 
 setupKeyBinding('setMoveButtonA', '移動');
 setupKeyBinding('setMoveButtonB', '移動');
+
+setupKeyBinding('setScissorA', '移動');
+setupKeyBinding('setRockA', '移動');
+setupKeyBinding('setPaperA', '移動');
+setupKeyBinding('setScissorB', '移動');
+setupKeyBinding('setRockB', '移動');
+setupKeyBinding('setPaperB', '移動');
 
 let gameRunning = true;
 // 移動往前
@@ -187,12 +208,17 @@ function spawn(player) {
   spawnPoint.append(loser);
 }
 
+const winSound = new Audio('阿/win1.mp3');
 //贏家特效
 function win(winChar) {
   console.log(`🔁 玩家 ${winChar} 贏了`);
   const loseChar = winChar === 'A' ? 'B' : 'A';
   const overlay = document.getElementById('rps-overlay-win');
   const content = document.getElementById('win-content');
+
+  bgm.pause();
+  bgm.currentTime = 0;
+  winSound.play();
 
   gameRunning = false;
   if (overlay && content) {
@@ -214,4 +240,18 @@ function restartGame() {
   overlay.style.display = 'none';
   spawn('A');
   spawn('B');
+  winSound.pause();
+  winSound.currentTime = 0;
+  bgm.play();
+
+}
+
+//背景音樂
+const bgm = new Audio('阿/bgm1.mp3');
+bgm.loop = true;
+
+function startGame() {
+  bgm.play(); // ✅ 一定要用使用者互動觸發
+  const overlay = document.getElementById("rps-overlay-start");
+  overlay.style.display = 'none';
 }

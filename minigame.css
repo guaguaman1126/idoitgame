@@ -285,3 +285,19 @@ body {
     margin: 10px;
     transition: transform 0.2s ease;
 }
+
+
+/* 開始畫面 */
+#rps-overlay-start {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 997;
+    /* display: none; */
+
+}
