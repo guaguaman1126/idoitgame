@@ -276,3 +276,10 @@ if (isMobileDevice()) {
   console.log("使用者是桌機！");
   document.body.classList.add("desktop");
 } 
+
+
+element.addEventListener('touchstart', function (e) {
+  // ❌ 小心這個會中斷瀏覽器預設處理，別亂用
+  // e.preventDefault();
+  console.log("Touched", e.touches.length);
+});
