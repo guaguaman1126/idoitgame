@@ -255,3 +255,24 @@ function startGame() {
   const overlay = document.getElementById("rps-overlay-start");
   overlay.style.display = 'none';
 }
+
+
+// 行動裝置改layout
+function isMobileDevice() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}
+
+if (isMobileDevice()) {
+  console.log("使用者是行動裝置！");
+  document.body.classList.add("mobile");
+
+  // 找到所有 .setMoveButton 元素並隱藏
+  const moveButtons = document.querySelectorAll('.setMoveButton');
+  moveButtons.forEach(button => {
+    button.style.display = 'none';
+  });
+
+} else {
+  console.log("使用者是桌機！");
+  document.body.classList.add("desktop");
+} 
