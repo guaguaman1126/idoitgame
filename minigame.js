@@ -295,11 +295,12 @@ if (isMobileDevice()) {
 //   }
 // }, { passive: false });
 
-document.addEventListener('touchmove', function (e) {
-  if (e.touches.length > 1) {
-    e.preventDefault(); // ✅ 擋縮放，不補點擊
-  }
-}, { passive: false });
+
+// document.addEventListener('touchmove', function (e) {
+//   if (e.touches.length > 1) {
+//     e.preventDefault(); // ✅ 擋縮放，不補點擊
+//   }
+// }, { passive: false });
 
 document.addEventListener('touchstart', function (e) {
   if (e.touches.length > 1) {
