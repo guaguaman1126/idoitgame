@@ -301,3 +301,10 @@ body {
     /* display: none; */
 
 }
+
+
+/* 防止放大 */
+html, body {
+  touch-action: none;
+  user-select: none;
+}

@@ -278,8 +278,18 @@ if (isMobileDevice()) {
 } 
 
 
-element.addEventListener('touchstart', function (e) {
-  // ❌ 小心這個會中斷瀏覽器預設處理，別亂用
-  // e.preventDefault();
-  console.log("Touched", e.touches.length);
-});
+//手機防止放大
+document.addEventListener('touchmove', function (e) {
+  if (e.touches.length > 1) {
+    e.preventDefault();
+  }
+}, { passive: false });
+
+let lastTouchEnd = 0;
+document.addEventListener('touchend', function (e) {
+  const now = Date.now();
+  if (now - lastTouchEnd <= 300) {
+    e.preventDefault();
+  }
+  lastTouchEnd = now;
+}, false);
