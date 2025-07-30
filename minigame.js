@@ -302,15 +302,15 @@ if (isMobileDevice()) {
 //   }
 // }, { passive: false });
 
-document.addEventListener('touchstart', function (e) {
-  if (e.touches.length > 1) {
-    const touch = e.changedTouches[0]; // 最新放下的那根手指
-    const target = document.elementFromPoint(touch.clientX, touch.clientY);
-    if (target && typeof target.click === 'function') {
-      target.click();
-    }
-  }
-}, { passive: false });
+// document.addEventListener('touchstart', function (e) {
+//   if (e.touches.length > 1) {
+//     const touch = e.changedTouches[0]; // 最新放下的那根手指
+//     const target = document.elementFromPoint(touch.clientX, touch.clientY);
+//     if (target && typeof target.click === 'function') {
+//       target.click();
+//     }
+//   }
+// }, { passive: false });
 
 
 
