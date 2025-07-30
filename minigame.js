@@ -279,17 +279,39 @@ if (isMobileDevice()) {
 
 
 //手機防止放大
+// 防止雙指放大，但保留兩指各自點擊按鈕的能力
 document.addEventListener('touchmove', function (e) {
   if (e.touches.length > 1) {
     e.preventDefault();
+
+    // 🔁 對每個觸點補發 click
+    for (let i = 0; i < e.touches.length; i++) {
+      const touch = e.touches[i];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (target) {
+        target.click();
+      }
+    }
   }
 }, { passive: false });
 
+// 防止雙擊放大，但手動觸發點擊
 let lastTouchEnd = 0;
 document.addEventListener('touchend', function (e) {
   const now = Date.now();
-  if (now - lastTouchEnd <= 300) {
+  const doubleTap = (now - lastTouchEnd <= 300);
+
+  if (doubleTap) {
     e.preventDefault();
+
+    // 補發點擊事件給當下觸控點
+    const touch = e.changedTouches[0];
+    const target = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (target) {
+      target.click();
+    }
   }
+
   lastTouchEnd = now;
 }, false);
+
