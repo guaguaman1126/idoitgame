@@ -301,6 +301,18 @@ document.addEventListener('touchmove', function (e) {
   }
 }, { passive: false });
 
+document.addEventListener('touchstart', function (e) {
+  if (e.touches.length > 1) {
+    for (let i = 0; i < e.touches.length; i++) {
+      const touch = e.touches[i];
+      const target = document.elementFromPoint(touch.clientX, touch.clientY);
+      if (target && typeof target.click === 'function') {
+        target.click();
+      }
+    }
+  }
+}, { passive: false });
+
 
 // 防止雙擊放大，但手動觸發點擊
 let lastTouchEnd = 0;
