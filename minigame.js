@@ -94,6 +94,10 @@ function movePlayerBy(id, step) {
       return;
     }
     nextTile.appendChild(player);
+
+    const moveSound = new Audio('阿/move.mp3');
+    moveSound.volume = 0.6;
+    moveSound.play();
     console.log(`🚶‍♂️ 玩家移動到格子 ${newIndex}`);
   } else {
     console.log('⛔ 無法移動：目標格子不存在');
@@ -102,6 +106,8 @@ function movePlayerBy(id, step) {
 
 //猜拳戰鬥
 function triggerRockPaperScissors(player, tile) {
+  const fightSound = new Audio('阿/fight.mp3');
+  fightSound.play();
   console.log('✊✋✌️ 進入猜拳對戰！');
 
   const overlay = document.getElementById('rps-overlay');
