@@ -26,11 +26,12 @@ body {
     width: 15vw;
     height: 100vh;
     background-color: #dcdcdc;
-    padding: 20px;
+    padding: 5px 20px;
     box-sizing: border-box;
     border-right: 2px solid #aaa;
 
     display: flex;
+    align-items: center
 }
 
 #leftContainer {
@@ -69,11 +70,11 @@ body {
 .spawn-point {}
 
 #spawnPointA {
-    width: 80px;
-    height: 80px;
+    width: 70%;
+    aspect-ratio: 1;
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 1vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -81,11 +82,11 @@ body {
 }
 
 #spawnPointB {
-    width: 80px;
-    height: 80px;
+    width: 70%;
+    aspect-ratio: 1;
     border-radius: 50%;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-    margin: 10px;
+    margin: 1vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -95,13 +96,13 @@ body {
 /* 猜拳 */
 
 .moves {
-    width: 80px;
-    height: 80px;
+    width: 70%;
+    aspect-ratio: 1;
     border-radius: 50%;
     border: 3px solid #444;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    margin: 10px;
+    margin: 1vh;
     transition: transform 0.2s ease;
 }
 
@@ -282,13 +283,13 @@ body {
 
 /* 移動按鈕 */
 .moveButton {
-    width: 80px;
-    height: 80px;
+    width: 70%;
+    aspect-ratio: 1;
     border-radius: 50%;
     border: 3px solid #444;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    margin: 10px;
+    margin: 1vh;
     transition: transform 0.2s ease;
 }
 
