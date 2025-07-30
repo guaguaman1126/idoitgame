@@ -281,11 +281,14 @@ if (isMobileDevice()) {
 //手機防止放大
 // 防止雙指放大，但保留兩指各自點擊按鈕的能力
 document.querySelectorAll('button').forEach(btn => {
-  btn.addEventListener('touchstart', function (e) {
-    e.preventDefault(); // ✅ 阻止後續 click（避免重複）
-    btn.click(); // ✅ 手動觸發 click 邏輯
-  }, { passive: false });
+  if (btn.id !== 'start-game') { // ❌ 排除 id 為 start-game 的按鈕
+    btn.addEventListener('touchstart', function (e) {
+      e.preventDefault(); // ✅ 避免重複 click
+      btn.click();         // ✅ 模擬點擊
+    }, { passive: false });
+  }
 });
+
 
 
 // 防止雙擊放大，但手動觸發點擊
