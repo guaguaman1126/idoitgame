@@ -246,13 +246,15 @@ function restartGame() {
 
 }
 
-//背景音樂
+//開始遊戲背景音樂
 const bgm = new Audio('阿/bgm1.mp3');
 bgm.loop = true;
 
 function startGame() {
   bgm.play(); // ✅ 一定要用使用者互動觸發
   const overlay = document.getElementById("rps-overlay-start");
+  spawn('A');
+  spawn('B');
   overlay.style.display = 'none';
 }
 

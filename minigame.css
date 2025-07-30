@@ -1,11 +1,14 @@
-html, body {
-  touch-action: manipulation;
-  -webkit-user-select: none;
-  user-select: none;
+html,
+body {
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
 }
+
 button {
-  touch-action: manipulation;
+    touch-action: manipulation;
 }
+
 /* 讓整個 body 置中並橫向排列三個 container */
 body {
     margin: 0;
@@ -44,17 +47,20 @@ body {
 
 /* 中間主區塊 */
 #middleContainer {
-    width: 100%;
+    width: 70vw;
     height: 100%;
     background-color: #fff;
-    padding: 20px;
+    padding: 5vh 1.42vw;
     box-sizing: border-box;
     border-left: 2px solid #ccc;
     border-right: 2px solid #ccc;
+
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    /* 每列6格，5列 */
-    gap: 30px;
+    grid-template-columns: repeat(6, 10vw);
+    column-gap: 1.3vw;
+
+    grid-template-rows: repeat(5, 14vh);
+    row-gap: 5vh;
 
     position: relative;
 }
@@ -300,6 +306,19 @@ body {
     z-index: 997;
     /* display: none; */
 
+}
+
+#rps-overlay-start-p {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 半透明黑色背景 */
+    color: white;
+    /* 白色字體 */
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+    text-align: left;
 }
 
 
