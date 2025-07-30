@@ -141,11 +141,14 @@ let info = {};
 
 function startRpsTimer(duration = 3000) {
   const bar = document.getElementById('rps-bar');
+  forceResetBar(bar);
   console.log('[startRpsTimer] 啟動倒數計時');
   timerRunning = true;
   info = {}; // 重設 info
 
   // 初始樣式：無動畫，width 100%
+
+  
   bar.style.transition = 'none';
   bar.style.width = '100%';
 
@@ -171,7 +174,13 @@ function startRpsTimer(duration = 3000) {
     }
   }, { once: true });
 }
-
+//重置bar
+function forceResetBar(bar) {
+  // 暫時移出畫面
+  bar.style.display = 'none';
+  bar.offsetHeight; // 強迫重排
+  bar.style.display = '';
+}
 
 // 檢查按下的按鈕式是否有效
 function checkPress(player, move) {
