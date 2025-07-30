@@ -304,7 +304,7 @@ body {
 
 
 /* 防止放大 */
-html, body {
+/* html, body {
   touch-action: none;
   user-select: none;
-}
+} */
