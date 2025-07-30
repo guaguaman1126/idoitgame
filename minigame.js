@@ -111,20 +111,53 @@ function triggerRockPaperScissors(player, tile) {
 }
 
 // 讀條
-let timerRunning = false;
-let retryInterval;
-let info = {};
+// let timerRunning = false;
+// let retryInterval;
+// let info = {};
+
+// function startRpsTimer(duration = 3000) {
+//   const bar = document.getElementById('rps-bar');
+//   console.log('[startRpsTimer] 啟動倒數計時');
+//   bar.style.transition = 'none';
+//   bar.style.width = '100%';
+//   void bar.offsetWidth;
+//   bar.style.transition = `width ${duration}ms linear`;
+//   bar.style.width = '0%';
+//   timerRunning = true;
+//   info = {}; // 重設 info
+//   console.log('[startRpsTimer] 狀態初始化完成');
+
+//   bar.addEventListener('transitionend', () => {
+//     if (Object.keys(info).length === 0) {
+//       console.log('⏳ 時間到，沒有人按，重新開始');
+//       startRpsTimer();
+//     } else if (Object.keys(info).length === 1) {
+//       console.log('⏳ 時間到，僅一人按下，判定勝負');
+//       checkwin(info);
+//       timerRunning = false;
+//     }
+//   }, { once: true });
+// }
 
 function startRpsTimer(duration = 3000) {
   const bar = document.getElementById('rps-bar');
   console.log('[startRpsTimer] 啟動倒數計時');
-  bar.style.transition = 'none';
-  bar.style.width = '100%';
-  void bar.offsetWidth;
-  bar.style.transition = `width ${duration}ms linear`;
-  bar.style.width = '0%';
   timerRunning = true;
   info = {}; // 重設 info
+
+  // 初始樣式：無動畫，width 100%
+  bar.style.transition = 'none';
+  bar.style.width = '100%';
+
+  // 強制一次重繪
+  void bar.offsetWidth;
+
+  // 這裡加 setTimeout，確保瀏覽器完成重繪再執行動畫
+  setTimeout(() => {
+    bar.style.transition = `width ${duration}ms linear`;
+    bar.style.width = '0%';
+  }, 50); // 50ms 比 0 更保險，iOS 有時會漏掉太快的 reflow
+
   console.log('[startRpsTimer] 狀態初始化完成');
 
   bar.addEventListener('transitionend', () => {
@@ -138,6 +171,7 @@ function startRpsTimer(duration = 3000) {
     }
   }, { once: true });
 }
+
 
 // 檢查按下的按鈕式是否有效
 function checkPress(player, move) {
