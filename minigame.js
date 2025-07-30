@@ -53,6 +53,7 @@ let listeningTarget = null;
 // setupKeyBinding('setPaperB', '移動');
 
 let gameRunning = true;
+const moveSound = new Audio('阿/move.mp3');
 // 移動往前
 function movePlayerBy(id, step) {
   let player;
@@ -95,9 +96,9 @@ function movePlayerBy(id, step) {
     }
     nextTile.appendChild(player);
 
-    const moveSound = new Audio('阿/move.mp3');
-    moveSound.volume = 0.6;
-    moveSound.play();
+    const moveSound1 = moveSound;
+    moveSound1.volume = 0.6;
+    moveSound1.play();
     console.log(`🚶‍♂️ 玩家移動到格子 ${newIndex}`);
   } else {
     console.log('⛔ 無法移動：目標格子不存在');
@@ -105,8 +106,9 @@ function movePlayerBy(id, step) {
 }
 
 //猜拳戰鬥
+const fightSound = new Audio('阿/fight.mp3');
 function triggerRockPaperScissors(player, tile) {
-  const fightSound = new Audio('阿/fight.mp3');
+  
   fightSound.play();
   console.log('✊✋✌️ 進入猜拳對戰！');
 
