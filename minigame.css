@@ -79,6 +79,11 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #ff69b4;
+
+    /* background-image: url('阿/moveButton.webp'); */
+    background-size: cover;
+    background-position: center;
+
 }
 
 #spawnPointB {
@@ -91,6 +96,8 @@ body {
     justify-content: center;
     align-items: center;
     background-color: #002366;
+
+
 }
 
 /* 猜拳 */
@@ -156,19 +163,44 @@ body {
 .tile {
     width: 100%;
     /* aspect-ratio: 1 / 1; */
-    background-color: #e0e0e0;
+    /* background-color: #e0e0e0; */
     border: 2px solid #aaa;
     border-radius: 6px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
     display: flex;
     justify-content: center;
     align-items: center;
+
+    background-image: url('阿/road1.png');
+    background-size: cover;
+    background-position: center;
+
+}
+
+.tile[data-index="6"] , .tile[data-index="18"] {
+    background-image: url('阿/road5.png');
+}
+
+.tile[data-index="7"] , .tile[data-index="19"] {
+    background-image: url('阿/road3.png');
+}
+
+.tile[data-index="12"] , .tile[data-index="24"] {
+    background-image: url('阿/road2.png');
+}
+
+.tile[data-index="13"] , .tile[data-index="25"] {
+    background-image: url('阿/road4.png');
+}
+
+.tile[data-index="0"] , .tile[data-index="31"] {
+    background-image: url('阿/spawnpoint.png');
 }
 
 /* 角色 */
 .player {
-    width: 40px;
-    height: 40px;
+    width: 50%;
+    aspect-ratio: 1;
     border-radius: 10px;
     border: 2px solid #333;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -291,6 +323,10 @@ body {
     cursor: pointer;
     margin: 1vh;
     transition: transform 0.2s ease;
+
+    background-image: url('阿/moveButton.webp');
+    background-size: cover;
+    background-position: center;
 }
 
 
