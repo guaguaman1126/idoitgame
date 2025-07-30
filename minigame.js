@@ -318,23 +318,5 @@ document.querySelectorAll('button').forEach(btn => {
 
 
 
-// 防止雙擊放大，但手動觸發點擊
-// let lastTouchEnd = 0;
-// document.addEventListener('touchend', function (e) {
-//   const now = Date.now();
-//   const doubleTap = (now - lastTouchEnd <= 300);
-
-//   if (doubleTap) {
-//     e.preventDefault();
-
-//     // 補發點擊事件給當下觸控點
-//     const touch = e.changedTouches[0];
-//     const target = document.elementFromPoint(touch.clientX, touch.clientY);
-//     if (target) {
-//       target.click();
-//     }
-//   }
-
-//   lastTouchEnd = now;
-// }, false);
+//音效
 

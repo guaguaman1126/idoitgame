@@ -119,42 +119,42 @@ body {
 
 #rockA {
     background-color: #ffe4e1;
-    background-image: url('阿/rock.png');
+    background-image: url('阿/rock.jpg');
     background-size: cover;
     background-position: center;
 }
 
 #paperA {
     background-color: #ffe4e1;
-    background-image: url('阿/paper.png');
+    background-image: url('阿/paper.jpg');
     background-size: cover;
     background-position: center;
 }
 
 #scissorA {
     background-color: #ffe4e1;
-    background-image: url('阿/scissors.png');
+    background-image: url('阿/scissors.jpg');
     background-size: cover;
     background-position: center;
 }
 
 #rockB {
     background-color: #e6f7ff;
-    background-image: url('阿/rock.png');
+    background-image: url('阿/rock.jpg');
     background-size: cover;
     background-position: center;
 }
 
 #paperB {
     background-color: #e6f7ff;
-    background-image: url('阿/paper.png');
+    background-image: url('阿/paper.jpg');
     background-size: cover;
     background-position: center;
 }
 
 #scissorB {
     background-color: #e6f7ff;
-    background-image: url('阿/scissors.png');
+    background-image: url('阿/scissors.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -171,30 +171,30 @@ body {
     justify-content: center;
     align-items: center;
 
-    background-image: url('阿/road1.png');
+    background-image: url('阿/road1.jpg');
     background-size: cover;
     background-position: center;
 
 }
 
 .tile[data-index="6"] , .tile[data-index="18"] {
-    background-image: url('阿/road5.png');
+    background-image: url('阿/road5.jpg');
 }
 
 .tile[data-index="7"] , .tile[data-index="19"] {
-    background-image: url('阿/road3.png');
+    background-image: url('阿/road3.jpg');
 }
 
 .tile[data-index="12"] , .tile[data-index="24"] {
-    background-image: url('阿/road2.png');
+    background-image: url('阿/road2.jpg');
 }
 
 .tile[data-index="13"] , .tile[data-index="25"] {
-    background-image: url('阿/road4.png');
+    background-image: url('阿/road4.jpg');
 }
 
 .tile[data-index="0"] , .tile[data-index="31"] {
-    background-image: url('阿/spawnpoint.png');
+    background-image: url('阿/spawnpoint.jpg');
 }
 
 /* 角色 */
