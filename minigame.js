@@ -1,56 +1,56 @@
 const keyBindings = {};
 let listeningTarget = null;
 // 綁定按鈕
-function setupKeyBinding(buttonId, actionName) {
-  const button = document.getElementById(buttonId);
-  button.addEventListener('click', () => {
-    listeningTarget = buttonId;
-    button.textContent = `請按下要綁定的鍵（${actionName}）`;
-  });
-}
+// function setupKeyBinding(buttonId, actionName) {
+//   const button = document.getElementById(buttonId);
+//   button.addEventListener('click', () => {
+//     listeningTarget = buttonId;
+//     button.textContent = `請按下要綁定的鍵（${actionName}）`;
+//   });
+// }
 
-document.addEventListener('keydown', (e) => {
-  if (listeningTarget) {
-    const button = document.getElementById(listeningTarget);
-    keyBindings[listeningTarget] = e.key;
-    button.textContent = `綁定：${e.key.toUpperCase()}`;
-    listeningTarget = null;
-    console.log(`[KeyBinding] 綁定 ${e.key} 給 ${button.id}`);
-  } else {
-    Object.keys(keyBindings).forEach((id) => {
-      if (e.key === keyBindings[id]) {
+// document.addEventListener('keydown', (e) => {
+//   if (listeningTarget) {
+//     const button = document.getElementById(listeningTarget);
+//     keyBindings[listeningTarget] = e.key;
+//     button.textContent = `綁定：${e.key.toUpperCase()}`;
+//     listeningTarget = null;
+//     console.log(`[KeyBinding] 綁定 ${e.key} 給 ${button.id}`);
+//   } else {
+//     Object.keys(keyBindings).forEach((id) => {
+//       if (e.key === keyBindings[id]) {
 
-        console.log(`[KeyEvent] 偵測到 ${e.key} 觸發 ${id}`);
-        if (id === 'setMoveButtonA' || id === 'setMoveButtonB') {
-          movePlayerBy(id, 1);
-        } else if (id === 'setScissorA') {
-          checkPress('A', 1)
-        } else if (id === 'setRockA') {
-          checkPress('A', 2)
-        } else if (id === 'setPaperA') {
-          checkPress('A', 3)
-        } else if (id === 'setScissorB') {
-          checkPress('B', 1)
-        } else if (id === 'setRockB') {
-          checkPress('B', 2)
-        } else if (id === 'setPaperB') {
-          checkPress('B', 3)
-        }
-      }
+//         console.log(`[KeyEvent] 偵測到 ${e.key} 觸發 ${id}`);
+//         if (id === 'setMoveButtonA' || id === 'setMoveButtonB') {
+//           movePlayerBy(id, 1);
+//         } else if (id === 'setScissorA') {
+//           checkPress('A', 1)
+//         } else if (id === 'setRockA') {
+//           checkPress('A', 2)
+//         } else if (id === 'setPaperA') {
+//           checkPress('A', 3)
+//         } else if (id === 'setScissorB') {
+//           checkPress('B', 1)
+//         } else if (id === 'setRockB') {
+//           checkPress('B', 2)
+//         } else if (id === 'setPaperB') {
+//           checkPress('B', 3)
+//         }
+//       }
 
-    });
-  }
-});
+//     });
+//   }
+// });
 
-setupKeyBinding('setMoveButtonA', '移動');
-setupKeyBinding('setMoveButtonB', '移動');
+// setupKeyBinding('setMoveButtonA', '移動');
+// setupKeyBinding('setMoveButtonB', '移動');
 
-setupKeyBinding('setScissorA', '移動');
-setupKeyBinding('setRockA', '移動');
-setupKeyBinding('setPaperA', '移動');
-setupKeyBinding('setScissorB', '移動');
-setupKeyBinding('setRockB', '移動');
-setupKeyBinding('setPaperB', '移動');
+// setupKeyBinding('setScissorA', '移動');
+// setupKeyBinding('setRockA', '移動');
+// setupKeyBinding('setPaperA', '移動');
+// setupKeyBinding('setScissorB', '移動');
+// setupKeyBinding('setRockB', '移動');
+// setupKeyBinding('setPaperB', '移動');
 
 let gameRunning = true;
 // 移動往前
@@ -115,30 +115,6 @@ let timerRunning = false;
 let retryInterval;
 let info = {};
 
-// function startRpsTimer(duration = 3000) {
-//   const bar = document.getElementById('rps-bar');
-//   console.log('[startRpsTimer] 啟動倒數計時');
-//   bar.style.transition = 'none';
-//   bar.style.width = '100%';
-//   void bar.offsetWidth;
-//   bar.style.transition = `width ${duration}ms linear`;
-//   bar.style.width = '0%';
-//   timerRunning = true;
-//   info = {}; // 重設 info
-//   console.log('[startRpsTimer] 狀態初始化完成');
-
-//   bar.addEventListener('transitionend', () => {
-//     if (Object.keys(info).length === 0) {
-//       console.log('⏳ 時間到，沒有人按，重新開始');
-//       startRpsTimer();
-//     } else if (Object.keys(info).length === 1) {
-//       console.log('⏳ 時間到，僅一人按下，判定勝負');
-//       checkwin(info);
-//       timerRunning = false;
-//     }
-//   }, { once: true });
-// }
-
 function startRpsTimer(duration = 3000) {
   const bar = document.getElementById('rps-bar');
   forceResetBar(bar);
@@ -148,7 +124,7 @@ function startRpsTimer(duration = 3000) {
 
   // 初始樣式：無動畫，width 100%
 
-  
+
   bar.style.transition = 'none';
   bar.style.width = '100%';
 
@@ -320,7 +296,7 @@ if (isMobileDevice()) {
 } else {
   console.log("使用者是桌機！");
   document.body.classList.add("desktop");
-} 
+}
 
 
 //手機防止放大

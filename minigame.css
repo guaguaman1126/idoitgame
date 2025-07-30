@@ -209,14 +209,14 @@ body {
 }
 
 #playerA {
-    background-image: url('阿/playerA.png');
+    background-image: url('阿/playerA.webp');
     /* 換成你的圖片路徑 */
     background-size: cover;
     background-position: center;
 }
 
 #playerB {
-    background-image: url('阿/playerB.png');
+    background-image: url('阿/playerB.jpg');
     /* 換成你的圖片路徑 */
     background-size: cover;
     background-position: center;
@@ -327,6 +327,11 @@ body {
     background-image: url('阿/moveButton.webp');
     background-size: cover;
     background-position: center;
+}
+
+.moveButton p{
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
 }
 
 
