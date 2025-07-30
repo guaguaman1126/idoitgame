@@ -111,9 +111,9 @@ function triggerRockPaperScissors(player, tile) {
 }
 
 // 讀條
-// let timerRunning = false;
-// let retryInterval;
-// let info = {};
+let timerRunning = false;
+let retryInterval;
+let info = {};
 
 // function startRpsTimer(duration = 3000) {
 //   const bar = document.getElementById('rps-bar');
